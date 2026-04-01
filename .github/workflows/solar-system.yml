@@ -30,3 +30,9 @@ jobs:
 
         - name: Unit Testing
           run: npm test
+
+        - name: Archive Test Result
+          uses: actions/uplad-artifact@v3
+          wuth:
+            name: Mocha-Test-Result
+            path: test-results.xml
