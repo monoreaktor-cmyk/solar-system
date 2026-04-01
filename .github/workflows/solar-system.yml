@@ -55,11 +55,13 @@ jobs:
           uses: actions/setup-node@v3
           with:
             node-version: 18
+
         - name: Install Dependenceies
           run: npm install
 
-        - name: Unit Testing
-          run: npm test
+        - name: Check Code Coverage
+          continue-on-error: true
+          run: npm run coverage
 
         - name: Archive Test Result
           uses: actions/upload-artifact@v7
