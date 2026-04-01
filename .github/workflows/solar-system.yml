@@ -43,3 +43,26 @@ jobs:
           with:
             name: Mocha-Test-Result
             path: test-results.xml
+
+    code-coverage:
+        name: Code Covarage
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout Repository
+          uses: actions/checkout@v4
+
+        - name: Setup NodeJS Version - 18
+          uses: actions/setup-node@v3
+          with:
+            node-version: 18
+        - name: Install Dependenceies
+          run: npm install
+
+        - name: Unit Testing
+          run: npm test
+
+        - name: Archive Test Result
+          uses: actions/upload-artifact@v7
+          with:
+            name: Mocha-Test-Result
+            path: test-results.xml
